@@ -130,8 +130,25 @@ footer div{
 
 footer {
     text-align: right;
-    
 }
+
+footer div a:link, footer div a:visited {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+
+footer div a:hover, footer div a:active {
+  color: #005e6a;
+  background-color: white;
+  border-radius: 5px;
+  margin: 1em;
+  padding: 5px;
+  text-decoration: none;
+
+}
+
 
 footer div p{
     color: white;
@@ -139,17 +156,47 @@ footer div p{
     text-decoration: none;
 }
 
+footer svg {
+  align-self: center;
+}
+
 footer .btn{
     margin-top: 1em;
     display: inline-block;
     background: white;
-    color: black;
-    padding: 0.8em 1.5em;
+    color: #005e6a;
+    padding: 0.5em 1.5em;
     text-decoration: none;
     border-radius: 25px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+footer h2{
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+footer div{
+  padding-left: 50px;
+  padding-top: 20px;
+}
+
+.projects h2 {
+  align-self: flex-start;
+  }
+
+.projects {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 
+.skills h2 {
+align-self: flex-start;
+}
 
 .skills {
   margin: 0;
@@ -167,13 +214,14 @@ footer .btn{
 }
 
 #carousel {
-  overflow: auto;
+  overflow: hidden;
   scroll-behavior: smooth;
   scrollbar-width: none;
+  width: 1000px;
 }
 
 #carousel::-webkit-scrollbar {
-  height: 0;
+  display: none;
 }
 
 #prev,
@@ -181,7 +229,7 @@ footer .btn{
   display: flex;
   justify-content: center;
   align-content: center;
-  background: white;
+  background: #b3f3f5;
   border: none;
   padding: 8px;
   border-radius: 50%;
@@ -205,14 +253,12 @@ footer .btn{
 
 #content {
   display: grid;
-  grid-gap: 16px;
   grid-auto-flow: column;
-  margin: auto;
-  box-sizing: border-box;
+  grid-gap: 50px;
+  width: max-content;
 }
 
 .item {
-  width: 200px;
-  height: auto;
-  background: green;
+  width: auto;
+  height: 150px;
 }
