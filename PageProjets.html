@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets - Esmeralda MARTIN</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--light);
+        }
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --accent: #f093fb;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --white: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+           max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #6366f1;
+            margin-bottom: 0.5rem;
+        }
+
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-right: 20px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+        }
+
+        .project-title {
+            flex: 1;
+        }
+
+        .project-title h3 {
+            color: #1f2937;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .project-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .skill-tag-grp {
+            background: linear-gradient(135deg, #63b8f1, #5c97f6);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-description {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            min-height: 80px;
+            font-size: 1rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .github-link, .demo-link {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+
+        .github-link {
+            background: #24292e;
+            color: white;
+        }
+
+        .github-link:hover {
+            background: #1a1e22;
+            transform: translateY(-2px);
+        }
+
+        .demo-link {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+        }
+
+        .demo-link:hover {
+            background: linear-gradient(135deg, #5855eb, #7c3aed);
+            transform: translateY(-2px);
+        }
+
+        .competence-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 40px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .competence-title {
+            color: #6366f1;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .competences-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .competence-category {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border-radius: 15px;
+        }
+
+        .competence-category h4 {
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+
+        .competence-list {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        header {
+        background: linear-gradient(45deg, var(--primary), var(--secondary));;
+        padding: 1em 0;
+        
+        }
+
+        .nav nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        gap: 5em;
+        }
+
+        .nav nav a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .project-links {
+                flex-direction: column;
+            }
+        }
+
+        .placeholder-input {
+            background: #f3f4f6;
+            border: 2px dashed #d1d5db;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            width: 100%;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .placeholder-input:focus {
+            outline: none;
+            border-color: #6366f1;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav">
+    <nav>
+      <ul>
+        <li><a href="PageAccueil.html">Accueil</a></li>
+        <li><a href="PagePersonnelle.html">À propos de moi</a></li>
+        <li><a href="PageCompetences.html">Compétences</a></li>
+        <li><a href="PageProjets.html">Projets</a></li>
+        <li><a href="PageContact.html">Contact</a></li>
+      </ul>
+    </nav>
+    </div>
+  </header>
+    <div class="container">
+        <div class="header">
+            <h1>Mes Projets d'Étude</h1>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Projet 1 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">🐍</div>
+                    <div class="project-title">
+                        <h3>Jeu du Snake</h3>
+                    </div>
+                </div>
+                <div class="project-skills">
+                    <span class="skill-tag">Langage C</span>
+                    <span class="skill-tag">Documentation doxygen</span>
+                    <span class="skill-tag-grp">Projet individuel</span>
+                </div>
+                <p class="project-description">
+                    Développement d'une plateforme e-commerce complète avec gestion des utilisateurs, panier d'achat et système de paiement intégré.
+                </p>
+                <div class="project-links">
+                    <a href="#" class="github-link">
+                        <span>⚡</span> Voir le projet sur GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Projet 2 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">🤖</div>
+                    <div class="project-title">
+                        <h3>Jeu du Snake autonome</h3>
+                    </div>
+                </div>
+                <div class="project-skills">
+                    <span class="skill-tag">Langage C</span>
+                    <span class="skill-tag-grp">Projet en binôme</span>
+                </div>
+                <p class="project-description">
+                    Création d'un jeu de plateforme 2D avec système de physique, collectibles et niveaux multiples utilisant HTML5 Canvas.
+                </p>
+                <div class="project-links">
+                    <a href="#" class="github-link">
+                        <span>⚡</span> Voir le projet sur GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Projet 3 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">💻</div>
+                    <div class="project-title">
+                        <h3>Installation d’un Poste de Développement</h3>
+                    </div>
+                </div>
+                <div class="project-skills">
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag-grp">Projet de groupe</span>
+                </div>
+                <p class="project-description">
+                    Interface d'analyse de données interactive avec graphiques dynamiques et visualisations en temps réel pour le suivi de performances.
+                </p>
+                <div class="project-links">
+                    <a href="#" class="github-link">
+                        <span>⚡</span> Voir le projet sur GitHub
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Projet 4 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">🗄️</div>
+                    <div class="project-title">
+                        <h3>Création d’une Base de Données</h3>
+                    </div>
+                </div>
+                <div class="project-skills">
+                    <span class="skill-tag">Diagramme de classe (UML)</span>
+                    <span class="skill-tag">Tutorial D</span>
+                    <span class="skill-tag">Graphe des contraintes d'intégrité référentielles </span>
+                    <span class="skill-tag-grp">Projet en binôme</span>
+                </div>
+                <p class="project-description">
+                    Application mobile de gestion de tâches avec synchronisation cloud, notifications push et interface utilisateur moderne.
+                </p>
+                <div class="project-links">
+                    <a href="#" class="github-link">
+                        <span>⚡</span> Voir le projet sur GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Projet 5 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">🌐</div>
+                    <div class="project-title">
+                        <h3>Création d'un Site Web</h3>
+                    </div>
+                </div>
+                <div class="project-skills">
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag-grp">Projet de groupe</span>
+                </div>
+                <p class="project-description">
+                    Développement d'un chatbot intelligent utilisant le traitement du langage naturel pour l'assistance client automatisée.
+                </p>
+                <div class="project-links">
+                    <a href="#" class="github-link">
+                        <span>⚡</span> Voir le projet sur GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Projet 6 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">🌍</div>
+                    <div class="project-title">
+                        <h3>Découverte de l'Environnement Économique et Écologique</h3>
+                    </div>
+                </div>
+                <div class="project-skills">
+                    <span class="skill-tag-grp">Projet de groupe</span>
+                </div>
+                <p class="project-description">
+                    Implémentation complète d'un système d'authentification sécurisé avec tokens JWT, validation 2FA et gestion des permissions.
+                </p>
+                <div class="project-links">
+                    <a href="#" class="github-link">
+                        <span>⚡</span> Voir le projet sur GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Projet 7 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">📱</div>
+                    <div class="project-title">
+                        <h3>Développement d'une Application</h3>
+                    </div>
+                </div>
+                <div class="project-skills">
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">JavaFX</span>
+                    <span class="skill-tag">Scene Builder</span>
+                    <span class="skill-tag-grp">Projet de groupe</span>
+                </div>
+                <p class="project-description">
+                    Site web moderne entièrement responsive avec animations CSS, optimisation SEO et performances maximisées sur tous les appareils.
+                </p>
+                <div class="project-links">
+                    <a href="#" class="github-link">
+                        <span>⚡</span> Voir le projet sur GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Projet 8 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">🧠</div>
+                    <div class="project-title">
+                        <h3>Exploration Algorithmique d'un Problème</h3>
+                    </div>
+                </div>
+                <div class="project-skills">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag-grp">Projet de groupe</span>
+                </div>
+                <p class="project-description">
+                    Projet d'analyse de données complexes avec visualisations interactives, traitement statistique et génération de rapports automatisés.
+                </p>
+                <div class="project-links">
+                    <a href="#" class="github-link">
+                        <span>⚡</span> Voir le projet sur GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Projet 9 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">🔧</div>
+                    <div class="project-title">
+                        <h3>Installation de Services Réseau</h3>
+                    </div>
+                </div>
+                <div class="project-skills">
+                    <span class="skill-tag">PHP</span>
+                    <span class="skill-tag">Machine Virtuelle</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">Serveur Apache</span>
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag-grp">Projet de groupe</span>
+                </div>
+                <p class="project-description">
+                    Développement d'une API REST complète avec documentation Swagger, tests unitaires et déploiement en conteneurs Docker.
+                </p>
+                <div class="project-links">
+                    <a href="#" class="github-link">
+                        <span>⚡</span> Voir le projet sur GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Projet 10 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">🔍</div>
+                    <div class="project-title">
+                        <h3>Exploitation d'une Base de Données</h3>
+                    </div>
+                </div>
+                <div class="project-skills">
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Diagramme de classe</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Statistiques</span>
+                    <span class="skill-tag-grp">Projet en binôme</span>
+                </div>
+                <p class="project-description">
+                    Éditeur d'images en ligne avec filtres, effets spéciaux, calques et outils de dessin avancés utilisant les technologies web modernes.
+                </p>
+                <div class="project-links">
+                    <a href="#" class="github-link">
+                        <span>⚡</span> Voir le projet sur GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Projet 11 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">📆</div>
+                    <div class="project-title">
+                        <h3>Gestion d'un Projet</h3>
+                    </div>
+                </div>
+                <div class="project-skills">
+                    <span class="skill-tag">SEL</span>
+                    <span class="skill-tag">OT</span>
+                    <span class="skill-tag">RACI</span>
+                    <span class="skill-tag">OF</span>
+                    <span class="skill-tag">Diagramme de Gantt</span>
+                    <span class="skill-tag-grp">Projet de groupe</span>
+                </div>
+                <p class="project-description">
+                    Application météo Progressive Web App avec fonctionnalités offline, notifications push et géolocalisation en temps réel.
+                </p>
+                <div class="project-links">
+                    <a href="#" class="github-link">
+                        <span>⚡</span> Voir le projet sur GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Projet 12 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">🎥</div>
+                    <div class="project-title">
+                        <h3>Organisation d'un Travail d'Équipe</h3>
+                    </div>
+                </div>
+                <div class="project-skills">
+                    <span class="skill-tag">Montage vidéo</span>
+                    <span class="skill-tag-grp">Projet en binôme</span>
+                </div>
+                <p class="project-description">
+                    Plateforme de quiz en temps réel avec multijoueurs, système de scores, création de questionnaires personnalisés et statistiques détaillées.
+                </p>
+                <div class="project-links">
+                    <a href="#" class="github-link">
+                        <span>⚡</span> Voir le projet sur GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        
+
+    <script>
+        // Animation d'apparition au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observer toutes les cartes
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        
+
+        
+        // Animation des cartes au hover
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

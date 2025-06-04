@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos de moi - Esmeralda MARTIN</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --accent: #f093fb;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --white: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--light);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 3rem 0;
+            background: var(--gradient);
+            color: var(--white);
+            margin: -2rem -2rem 3rem -2rem;
+            border-radius: 0 0 30px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><path fill="rgba(255,255,255,0.1)" d="M0,100 C150,200 350,0 500,100 C650,200 850,0 1000,100 L1000,200 L0,200 Z"/></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        .profile-photo img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: var(--accent);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--white);
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 2;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Main Content */
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .section {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .info-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .info-group {
+            margin-bottom: 2rem;
+        }
+
+        .info-group h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light);
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .info-item:hover {
+            background: var(--light);
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            margin-right: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .languages {
+            margin-top: 1rem;
+        }
+
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .language-level {
+            display: flex;
+            gap: 2px;
+        }
+
+        .level-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--light);
+        }
+
+        .level-dot.filled {
+            background: var(--primary);
+        }
+
+        /* Main Content Sections */
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, var(--accent) 0%, var(--accent) 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.3em;
+            background-position: 0 88%;
+            padding: 0 0.2rem;
+        }
+
+        .goals-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .goals-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .goals-list li::before {
+            content: '🎯';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .interests {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .interest-card {
+            background: linear-gradient(135deg, var(--light), var(--white));
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interest-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .interest-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .interest-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Carousel Styles */
+        .carousel-container {
+            position: relative;
+            margin: 1rem 0;
+            height: 120px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient);
+            color: var(--white);
+            font-size: 2.5rem;
+            position: relative;
+        }
+
+        .carousel-slide.image {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .carousel-slide.placeholder {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+        }
+
+        .carousel-nav {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: var(--white);
+            transform: scale(1.2);
+        }
+
+        .carousel-arrows {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            color: var(--primary);
+        }
+
+        .carousel-arrows:hover {
+            background: var(--white);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-prev {
+            left: 8px;
+        }
+
+        .carousel-next {
+            right: 8px;
+        }
+
+        header {
+        background: linear-gradient(45deg, var(--primary), var(--secondary));;
+        padding: 1em 0;
+        
+        }
+
+        .nav nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        gap: 5em;
+        }
+
+        .nav nav a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .info-section {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                margin: -1rem -1rem 2rem -1rem;
+                padding: 2rem 1rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+                font-size: 3rem;
+            }
+
+            .interests {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .slide-in {
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav">
+    <nav>
+      <ul>
+        <li><a href="PageAccueil.html">Accueil</a></li>
+        <li><a href="PagePersonnelle.html">À propos de moi</a></li>
+        <li><a href="PageCompetences.html">Compétences</a></li>
+        <li><a href="PageProjets.html">Projets</a></li>
+        <li><a href="PageContact.html">Contact</a></li>
+      </ul>
+    </nav>
+    </div>
+  </header>
+    <div class="container">
+        <!-- Header -->
+        <div class="header fade-in">
+            <div class="profile-photo"><img src="images/accueil/esmeralda_martin.png"></div>
+            <h1>Esmeralda MARTIN</h1>
+            <p class="subtitle">Étudiante en BUT Informatique - 1ère année</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Informations personnelles et compétences -->
+            <section class="section slide-in">
+                <h2 class="section-title">Informations & Compétences</h2>
+                <div class="info-section">
+                    <div class="info-column">
+                        <div class="info-group">
+                            <h3>Contact</h3>
+                            <div class="info-item">
+                                <div class="info-icon">📧</div>
+                                <div>
+                                    <strong>Email</strong><br>
+                                    esmeralda.martin206@gmail.com<br>esmeralda.martin@etudiant.univ-rennes.fr
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon">📱</div>
+                                <div>
+                                    <strong>Téléphone</strong><br>
+                                    06 52 64 09 81
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon">📍</div>
+                                <div>
+                                    <strong>Localisation</strong><br>
+                                    Lannion, France<br>Brest, France
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon">🎂</div>
+                                <div>
+                                    <strong>Âge</strong><br>
+                                    18 ans
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-column">
+                        <div class="info-group">
+                            <h3>Compétences techniques</h3>
+                            <div class="skills-list">
+                                <span class="skill-tag">Java</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">HTML</span>
+                                <span class="skill-tag">CSS</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">SQL</span>
+                                <span class="skill-tag">GitHub</span>
+                                <span class="skill-tag">Linux</span>
+                                <span class="skill-tag">Docker</span>
+                            </div>
+                        </div>
+
+                        <div class="info-group">
+                            <h3>Langues</h3>
+                            <div class="languages">
+                                <div class="language-item">
+                                    <span><strong>Français</strong></span>
+                                    <div class="language-level">
+                                        <div class="level-dot filled"></div>
+                                        <div class="level-dot filled"></div>
+                                        <div class="level-dot filled"></div>
+                                        <div class="level-dot filled"></div>
+                                        <div class="level-dot filled"></div>
+                                        <div class="level-dot filled"></div>
+                                    </div>
+                                </div>
+                                <div class="language-item">
+                                    <span><strong>Anglais</strong></span>
+                                    <div class="language-level">
+                                        <div class="level-dot filled"></div>
+                                        <div class="level-dot filled"></div>
+                                        <div class="level-dot filled"></div>
+                                        <div class="level-dot filled"></div>
+                                        <div class="level-dot"></div>
+                                        <div class="level-dot"></div>
+                                    </div>
+                                </div>
+                                <div class="language-item">
+                                    <span><strong>Espagnol</strong></span>
+                                    <div class="language-level">
+                                        <div class="level-dot filled"></div>
+                                        <div class="level-dot filled"></div>
+                                        <div class="level-dot filled"></div>
+                                        <div class="level-dot filled"></div>
+                                        <div class="level-dot filled"></div>
+                                        <div class="level-dot"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- À propos -->
+            <section class="section slide-in">
+                <h2 class="section-title">À propos de moi</h2>
+                <div class="about-text">
+                    Passionnée par l'informatique depuis mon plus jeune âge, je suis actuellement en 2ème année de BUT Informatique à l'IUT de Lyon. Mon parcours m'a permis de découvrir différents aspects du développement logiciel, de la programmation orientée objet aux technologies web modernes.
+                </div>
+                <div class="about-text">
+                    Ce qui me motive le plus dans ce domaine, c'est la possibilité de créer des solutions concrètes aux problèmes du quotidien. J'aime particulièrement le développement web et mobile, ainsi que tout ce qui touche à l'expérience utilisateur et au design d'interfaces.
+                </div>
+                <div class="about-text">
+                    Curieuse et toujours prête à apprendre, je cherche constamment à me perfectionner et à découvrir de nouvelles technologies. Mon objectif est de devenir une développeuse polyvalente, capable de travailler aussi bien sur le front-end que sur le back-end.
+                </div>
+            </section>
+
+            <!-- Objectifs professionnels -->
+            <section class="section slide-in">
+                <h2 class="section-title">Mes objectifs</h2>
+                <ul class="goals-list">
+                    <li>Obtenir mon BUT Informatique avec mention</li>
+                    <li>Effectuer un stage en développement web dans une entreprise innovante</li>
+                    <li>Me spécialiser en développement full-stack JavaScript</li>
+                    <li>Contribuer à des projets open source</li>
+                    <li>Poursuivre mes études en école d'ingénieur ou en master</li>
+                </ul>
+            </section>
+
+            <!-- Centres d'intérêt -->
+            <section class="section slide-in">
+                <h2 class="section-title">Centres d'intérêt</h2>
+                    <div class="interests">
+                        <div class="interest-card">
+                            <div class="interest-icon">💻</div>
+                            <div class="interest-title">Coding</div>
+                            <div class="carousel-container">
+                                <div class="carousel" id="carousel-coding">
+                                    <div class="carousel-slide placeholder">🖥️</div>
+                                    <div class="carousel-slide placeholder">⌨️</div>
+                                    <div class="carousel-slide placeholder">🚀</div>
+                                </div>
+                                <div class="carousel-nav">
+                                    <div class="carousel-dot active" onclick="goToSlide('coding', 0)"></div>
+                                    <div class="carousel-dot" onclick="goToSlide('coding', 1)"></div>
+                                    <div class="carousel-dot" onclick="goToSlide('coding', 2)"></div>
+                                </div>
+                                <button class="carousel-arrows carousel-prev" onclick="prevSlide('coding')">‹</button>
+                                <button class="carousel-arrows carousel-next" onclick="nextSlide('coding')">›</button>
+                            </div>
+                            <p>Projets personnels et participation à des hackathons</p>
+                        </div>
+                        <div class="interest-card">
+                            <div class="interest-icon">🎮</div>
+                            <div class="interest-title">Gaming</div>
+                            <div class="carousel-container">
+                                <div class="carousel" id="carousel-gaming">
+                                    <div class="carousel-slide placeholder">🎯</div>
+                                    <div class="carousel-slide placeholder">🏆</div>
+                                    <div class="carousel-slide placeholder">🎊</div>
+                                </div>
+                                <div class="carousel-nav">
+                                    <div class="carousel-dot active" onclick="goToSlide('gaming', 0)"></div>
+                                    <div class="carousel-dot" onclick="goToSlide('gaming', 1)"></div>
+                                    <div class="carousel-dot" onclick="goToSlide('gaming', 2)"></div>
+                                </div>
+                                <button class="carousel-arrows carousel-prev" onclick="prevSlide('gaming')">‹</button>
+                                <button class="carousel-arrows carousel-next" onclick="nextSlide('gaming')">›</button>
+                            </div>
+                            <p>Jeux vidéo et développement de petits jeux</p>
+                        </div>
+                        <div class="interest-card">
+                            <div class="interest-icon">📚</div>
+                            <div class="interest-title">Lecture</div>
+                            <div class="carousel-container">
+                                <div class="carousel" id="carousel-reading">
+                                    <div class="carousel-slide placeholder">📖</div>
+                                    <div class="carousel-slide placeholder">🔬</div>
+                                    <div class="carousel-slide placeholder">🌌</div>
+                                </div>
+                                <div class="carousel-nav">
+                                    <div class="carousel-dot active" onclick="goToSlide('reading', 0)"></div>
+                                    <div class="carousel-dot" onclick="goToSlide('reading', 1)"></div>
+                                    <div class="carousel-dot" onclick="goToSlide('reading', 2)"></div>
+                                </div>
+                                <button class="carousel-arrows carousel-prev" onclick="prevSlide('reading')">‹</button>
+                                <button class="carousel-arrows carousel-next" onclick="nextSlide('reading')">›</button>
+                            </div>
+                            <p>Science-fiction et livres techniques</p>
+                        </div>
+                        <div class="interest-card">
+                            <div class="interest-icon">🏃‍♀️</div>
+                            <div class="interest-title">Sport</div>
+                            <div class="carousel-container">
+                                <div class="carousel" id="carousel-sport">
+                                    <div class="carousel-slide placeholder">🏃‍♀️</div>
+                                    <div class="carousel-slide placeholder">🧘‍♀️</div>
+                                    <div class="carousel-slide placeholder">💪</div>
+                                </div>
+                                <div class="carousel-nav">
+                                    <div class="carousel-dot active" onclick="goToSlide('sport', 0)"></div>
+                                    <div class="carousel-dot" onclick="goToSlide('sport', 1)"></div>
+                                    <div class="carousel-dot" onclick="goToSlide('sport', 2)"></div>
+                                </div>
+                                <button class="carousel-arrows carousel-prev" onclick="prevSlide('sport')">‹</button>
+                                <button class="carousel-arrows carousel-next" onclick="nextSlide('sport')">›</button>
+                            </div>
+                            <p>Course à pied et yoga pour l'équilibre</p>
+                        </div>
+                        <div class="interest-card">
+                            <div class="interest-icon">🎨</div>
+                            <div class="interest-title">Design</div>
+                            <div class="carousel-container">
+                                <div class="carousel" id="carousel-design">
+                                    <div class="carousel-slide placeholder">🎨</div>
+                                    <div class="carousel-slide placeholder">✨</div>
+                                    <div class="carousel-slide placeholder">🖌️</div>
+                                </div>
+                                <div class="carousel-nav">
+                                    <div class="carousel-dot active" onclick="goToSlide('design', 0)"></div>
+                                    <div class="carousel-dot" onclick="goToSlide('design', 1)"></div>
+                                    <div class="carousel-dot" onclick="goToSlide('design', 2)"></div>
+                                </div>
+                                <button class="carousel-arrows carousel-prev" onclick="prevSlide('design')">‹</button>
+                                <button class="carousel-arrows carousel-next" onclick="nextSlide('design')">›</button>
+                            </div>
+                            <p>UI/UX et création graphique</p>
+                        </div>
+                        <div class="interest-card">
+                            <div class="interest-icon">🌍</div>
+                            <div class="interest-title">Voyages</div>
+                            <div class="carousel-container">
+                                <div class="carousel" id="carousel-travel">
+                                    <div class="carousel-slide placeholder">✈️</div>
+                                    <div class="carousel-slide placeholder">🗺️</div>
+                                    <div class="carousel-slide placeholder">📸</div>
+                                </div>
+                                <div class="carousel-nav">
+                                    <div class="carousel-dot active" onclick="goToSlide('travel', 0)"></div>
+                                    <div class="carousel-dot" onclick="goToSlide('travel', 1)"></div>
+                                    <div class="carousel-dot" onclick="goToSlide('travel', 2)"></div>
+                                </div>
+                                <button class="carousel-arrows carousel-prev" onclick="prevSlide('travel')">‹</button>
+                                <button class="carousel-arrows carousel-next" onclick="nextSlide('travel')">›</button>
+                            </div>
+                            <p>Découverte de nouvelles cultures</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Carousel functionality
+        const carousels = {};
+
+        // Initialize all carousels
+        document.addEventListener('DOMContentLoaded', function() {
+            const carouselNames = ['coding', 'gaming', 'reading', 'sport', 'design', 'travel'];
+            
+            carouselNames.forEach(name => {
+                carousels[name] = {
+                    currentSlide: 0,
+                    totalSlides: 3
+                };
+            });
+        });
+
+        function goToSlide(carouselName, slideIndex) {
+            const carousel = document.getElementById(`carousel-${carouselName}`);
+            const dots = carousel.parentElement.querySelectorAll('.carousel-dot');
+            
+            carousels[carouselName].currentSlide = slideIndex;
+            
+            // Update carousel position
+            carousel.style.transform = `translateX(-${slideIndex * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === slideIndex);
+            });
+        }
+
+        function nextSlide(carouselName) {
+            const current = carousels[carouselName].currentSlide;
+            const total = carousels[carouselName].totalSlides;
+            const nextIndex = (current + 1) % total;
+            goToSlide(carouselName, nextIndex);
+        }
+
+        function prevSlide(carouselName) {
+            const current = carousels[carouselName].currentSlide;
+            const total = carousels[carouselName].totalSlides;
+            const prevIndex = (current - 1 + total) % total;
+            goToSlide(carouselName, prevIndex);
+        }
+
+        // Auto-slide functionality (optional)
+        function startAutoSlide(carouselName, interval = 4000) {
+            setInterval(() => {
+                nextSlide(carouselName);
+            }, interval);
+        }
+
+        // Uncomment to enable auto-slide for all carousels
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     const carouselNames = ['coding', 'gaming', 'reading', 'sport', 'design', 'travel'];
+        //     carouselNames.forEach(name => startAutoSlide(name, 5000));
+        // });
+    </script>
+</body>
+</html>
