@@ -64,7 +64,7 @@
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            background: var(--accent);
+            background: rgba(156, 131, 245, 0.3);
             margin: 0 auto 1.5rem;
             display: flex;
             align-items: center;
@@ -190,6 +190,8 @@
             font-weight: 500;
         }
 
+        
+
         .languages {
             margin-top: 1rem;
         }
@@ -291,7 +293,7 @@
         .carousel-container {
             position: relative;
             margin: 1rem 0;
-            height: 120px;
+            height: 200px;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -366,6 +368,19 @@
             color: var(--primary);
         }
 
+        .carousel img {
+            padding-top: 10px;
+            width: 160px;
+            height: auto;
+            border-radius: 5%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
         .carousel-arrows:hover {
             background: var(--white);
             transform: translateY(-50%) scale(1.1);
@@ -396,6 +411,80 @@
         text-decoration: none;
         color: white;
         font-weight: bold;
+        }
+
+                /* Styles pour le footer - à intégrer dans votre CSS existant */
+        .portfolio-footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            padding: 40px 20px 20px;
+            margin-top: auto;
+            position: relative;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .footer-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .footer-link:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            color: #64ffda;
+        }
+
+        .footer-link svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-link:hover svg {
+            transform: scale(1.1);
+        }
+
+        .footer-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            margin: 20px 0 10px;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            margin-top: 10px;
         }
 
         /* Responsive */
@@ -477,7 +566,7 @@
     <div class="container">
         <!-- Header -->
         <div class="header fade-in">
-            <div class="profile-photo"><img src="images/accueil/esmeralda_martin.png"></div>
+            <div class="profile-photo"><img src="images/accueil/esmeralda.png"></div>
             <h1>Esmeralda MARTIN</h1>
             <p class="subtitle">Étudiante en BUT Informatique - 1ère année</p>
         </div>
@@ -584,13 +673,16 @@
             <section class="section slide-in">
                 <h2 class="section-title">À propos de moi</h2>
                 <div class="about-text">
-                    Passionnée par l'informatique depuis mon plus jeune âge, je suis actuellement en 2ème année de BUT Informatique à l'IUT de Lyon. Mon parcours m'a permis de découvrir différents aspects du développement logiciel, de la programmation orientée objet aux technologies web modernes.
+                    Passionnée par l'informatique depuis mon plus jeune âge, je suis actuellement en 1ère année de BUT Informatique à l'IUT de Lannion. Mon parcours m'a permis de découvrir différents aspects du développement logiciel, de la programmation orientée objet aux technologies web modernes.
                 </div>
                 <div class="about-text">
-                    Ce qui me motive le plus dans ce domaine, c'est la possibilité de créer des solutions concrètes aux problèmes du quotidien. J'aime particulièrement le développement web et mobile, ainsi que tout ce qui touche à l'expérience utilisateur et au design d'interfaces.
+                    Ce qui me motive le plus dans ce domaine, c'est la possibilité de créer des solutions concrètes aux problèmes du quotidien. J'aime particulièrement le développement web, ainsi que tout ce qui touche à l'expérience utilisateur et au design d'interfaces.
                 </div>
                 <div class="about-text">
-                    Curieuse et toujours prête à apprendre, je cherche constamment à me perfectionner et à découvrir de nouvelles technologies. Mon objectif est de devenir une développeuse polyvalente, capable de travailler aussi bien sur le front-end que sur le back-end.
+                    Curieuse et toujours prête à apprendre, je cherche constamment à me perfectionner et à découvrir de nouvelles technologies.
+                </div>
+                <div class="about-text">
+                    Je souhaite pour le moment continuer mon BUT informatique dans le parcours réalisation d'applications : conception, développement, validation. J'effectuerai ma deuxième année en alternance dans l'entreprise Crédit Mutuel Arkéa en tant que développeuse.
                 </div>
             </section>
 
@@ -598,11 +690,9 @@
             <section class="section slide-in">
                 <h2 class="section-title">Mes objectifs</h2>
                 <ul class="goals-list">
-                    <li>Obtenir mon BUT Informatique avec mention</li>
-                    <li>Effectuer un stage en développement web dans une entreprise innovante</li>
-                    <li>Me spécialiser en développement full-stack JavaScript</li>
-                    <li>Contribuer à des projets open source</li>
-                    <li>Poursuivre mes études en école d'ingénieur ou en master</li>
+                    <li>Obtenir mon BUT Informatique</li>
+                    <li>Effectuer une alternance à partir de ma deuxième année</li>
+                    <li>Poursuivre mes études en école d'ingénieur, également en alternance</li>
                 </ul>
             </section>
 
@@ -611,13 +701,13 @@
                 <h2 class="section-title">Centres d'intérêt</h2>
                     <div class="interests">
                         <div class="interest-card">
-                            <div class="interest-icon">💻</div>
-                            <div class="interest-title">Coding</div>
+                            <div class="interest-icon">💃</div>
+                            <div class="interest-title">Danse</div>
                             <div class="carousel-container">
                                 <div class="carousel" id="carousel-coding">
-                                    <div class="carousel-slide placeholder">🖥️</div>
-                                    <div class="carousel-slide placeholder">⌨️</div>
-                                    <div class="carousel-slide placeholder">🚀</div>
+                                    <div class="carousel-slide placeholder"><img src="images/personnelle/carrousel/jazz.jpg"></div>
+                                    <div class="carousel-slide placeholder"><img src="images/personnelle/carrousel/bodyPercu.jpg"></div>
+                                    <div class="carousel-slide placeholder"><img src="images/personnelle/carrousel/classique.jpg"></div>
                                 </div>
                                 <div class="carousel-nav">
                                     <div class="carousel-dot active" onclick="goToSlide('coding', 0)"></div>
@@ -627,16 +717,16 @@
                                 <button class="carousel-arrows carousel-prev" onclick="prevSlide('coding')">‹</button>
                                 <button class="carousel-arrows carousel-next" onclick="nextSlide('coding')">›</button>
                             </div>
-                            <p>Projets personnels et participation à des hackathons</p>
+                            <p>Plusieurs style de danse depuis que je suis toute petite</p>
                         </div>
                         <div class="interest-card">
-                            <div class="interest-icon">🎮</div>
-                            <div class="interest-title">Gaming</div>
+                            <div class="interest-icon">🧁​</div>
+                            <div class="interest-title">Pâtisserie</div>
                             <div class="carousel-container">
                                 <div class="carousel" id="carousel-gaming">
-                                    <div class="carousel-slide placeholder">🎯</div>
-                                    <div class="carousel-slide placeholder">🏆</div>
-                                    <div class="carousel-slide placeholder">🎊</div>
+                                    <div class="carousel-slide placeholder"><img src="images/personnelle/carrousel/tarteFraise.jpg"></div>
+                                    <div class="carousel-slide placeholder"><img src="images/personnelle/carrousel/cookie.jpg"></div>
+                                    <div class="carousel-slide placeholder"><img src="images/personnelle/carrousel/tiramisu.jpg"></div>
                                 </div>
                                 <div class="carousel-nav">
                                     <div class="carousel-dot active" onclick="goToSlide('gaming', 0)"></div>
@@ -645,17 +735,18 @@
                                 </div>
                                 <button class="carousel-arrows carousel-prev" onclick="prevSlide('gaming')">‹</button>
                                 <button class="carousel-arrows carousel-next" onclick="nextSlide('gaming')">›</button>
+                            
                             </div>
-                            <p>Jeux vidéo et développement de petits jeux</p>
+                            <p>J'adore faire toute sorte de gâteaux et pâtisseries</p>
                         </div>
                         <div class="interest-card">
-                            <div class="interest-icon">📚</div>
-                            <div class="interest-title">Lecture</div>
+                            <div class="interest-icon">🐈​</div>
+                            <div class="interest-title">Chat</div>
                             <div class="carousel-container">
                                 <div class="carousel" id="carousel-reading">
-                                    <div class="carousel-slide placeholder">📖</div>
-                                    <div class="carousel-slide placeholder">🔬</div>
-                                    <div class="carousel-slide placeholder">🌌</div>
+                                    <div class="carousel-slide placeholder"><img src="images/personnelle/carrousel/frilouz.png"></div>
+                                    <div class="carousel-slide placeholder"><img src="images/personnelle/carrousel/deadly.jpg"></div>
+                                    <div class="carousel-slide placeholder"><img src="images/personnelle/carrousel/moiFrilouz.jpg"></div>
                                 </div>
                                 <div class="carousel-nav">
                                     <div class="carousel-dot active" onclick="goToSlide('reading', 0)"></div>
@@ -664,71 +755,123 @@
                                 </div>
                                 <button class="carousel-arrows carousel-prev" onclick="prevSlide('reading')">‹</button>
                                 <button class="carousel-arrows carousel-next" onclick="nextSlide('reading')">›</button>
+                            
                             </div>
-                            <p>Science-fiction et livres techniques</p>
-                        </div>
-                        <div class="interest-card">
-                            <div class="interest-icon">🏃‍♀️</div>
-                            <div class="interest-title">Sport</div>
-                            <div class="carousel-container">
-                                <div class="carousel" id="carousel-sport">
-                                    <div class="carousel-slide placeholder">🏃‍♀️</div>
-                                    <div class="carousel-slide placeholder">🧘‍♀️</div>
-                                    <div class="carousel-slide placeholder">💪</div>
-                                </div>
-                                <div class="carousel-nav">
-                                    <div class="carousel-dot active" onclick="goToSlide('sport', 0)"></div>
-                                    <div class="carousel-dot" onclick="goToSlide('sport', 1)"></div>
-                                    <div class="carousel-dot" onclick="goToSlide('sport', 2)"></div>
-                                </div>
-                                <button class="carousel-arrows carousel-prev" onclick="prevSlide('sport')">‹</button>
-                                <button class="carousel-arrows carousel-next" onclick="nextSlide('sport')">›</button>
-                            </div>
-                            <p>Course à pied et yoga pour l'équilibre</p>
-                        </div>
-                        <div class="interest-card">
-                            <div class="interest-icon">🎨</div>
-                            <div class="interest-title">Design</div>
-                            <div class="carousel-container">
-                                <div class="carousel" id="carousel-design">
-                                    <div class="carousel-slide placeholder">🎨</div>
-                                    <div class="carousel-slide placeholder">✨</div>
-                                    <div class="carousel-slide placeholder">🖌️</div>
-                                </div>
-                                <div class="carousel-nav">
-                                    <div class="carousel-dot active" onclick="goToSlide('design', 0)"></div>
-                                    <div class="carousel-dot" onclick="goToSlide('design', 1)"></div>
-                                    <div class="carousel-dot" onclick="goToSlide('design', 2)"></div>
-                                </div>
-                                <button class="carousel-arrows carousel-prev" onclick="prevSlide('design')">‹</button>
-                                <button class="carousel-arrows carousel-next" onclick="nextSlide('design')">›</button>
-                            </div>
-                            <p>UI/UX et création graphique</p>
-                        </div>
-                        <div class="interest-card">
-                            <div class="interest-icon">🌍</div>
-                            <div class="interest-title">Voyages</div>
-                            <div class="carousel-container">
-                                <div class="carousel" id="carousel-travel">
-                                    <div class="carousel-slide placeholder">✈️</div>
-                                    <div class="carousel-slide placeholder">🗺️</div>
-                                    <div class="carousel-slide placeholder">📸</div>
-                                </div>
-                                <div class="carousel-nav">
-                                    <div class="carousel-dot active" onclick="goToSlide('travel', 0)"></div>
-                                    <div class="carousel-dot" onclick="goToSlide('travel', 1)"></div>
-                                    <div class="carousel-dot" onclick="goToSlide('travel', 2)"></div>
-                                </div>
-                                <button class="carousel-arrows carousel-prev" onclick="prevSlide('travel')">‹</button>
-                                <button class="carousel-arrows carousel-next" onclick="nextSlide('travel')">›</button>
-                            </div>
-                            <p>Découverte de nouvelles cultures</p>
+                            <p>Fan de chats depuis toujours, surtout de mon petit chat Frilouz</p>
                         </div>
                     </div>
                 </section>
             </main>
         </div>
     </div>
+     <!-- Footer à intégrer -->
+    <footer class="portfolio-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="mailto:esmeralda.martin206@gmail.com" class="footer-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    Contact
+                </a>
+                
+                <a href="https://github.com/emeraudeLa" target="_blank" rel="noopener noreferrer" class="footer-link">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                </a>
+                
+                <a href="https://www.linkedin.com/in/esmeralda-martin/" target="_blank" rel="noopener noreferrer" class="footer-link">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    LinkedIn
+                </a>
+                
+                <a href="CV_Esmeralda_Martin.pdf" download="CV_Esmeralda_Martin" class="footer-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7,10 12,15 17,10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Télécharger CV
+                </a>
+                
+                <a href="https://iut-lannion.univ-rennes.fr/" target="_blank" rel="noopener noreferrer"
+                    class="footer-link">
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="300.000000pt" height="347.000000pt"
+                        viewBox="0 0 300.000000 347.000000" preserveAspectRatio="xMidYMid meet">
+                        <g transform="translate(0.000000,347.000000) scale(0.100000,-0.100000)" fill="#ffffff"
+                            stroke="none">
+                            <path
+                                d="M433 3229 c-53 -26 -107 -79 -136 -132 l-22 -42 0 -1020 0 -1020 22 -41 c37 -68 71 -102 138 -134 l64 -30 1003 2 1003 3 41 22 c67 36 101 70 133 135 l31 61 0 1001 0 1001 -24 51 c-29 62 -85 120 -140 145 -39 18 -88 19 -1056 19 -1005 0 -1015 0 -1057 -21z m2058 -50 c52 -16 108 -64 130 -113 18 -39 19 -90 19 -1029 0 -1081 3 -1026 -58 -1091 -15 -16 -45 -37 -67 -47 -38 -18 -88 -19 -1023 -19 -866 0 -987 2 -1020 16 -47 19 -88 58 -113 106 -18 36 -19 72 -19 1030 0 949 1 995 19 1034 21 46 73 92 123 111 46 16 1954 18 2009 2z" />
+                            <path
+                                d="M605 2770 c-11 -4 -33 -22 -49 -39 -40 -41 -47 -120 -16 -169 27 -44 99 -76 148 -67 48 9 108 69 117 117 9 50 -23 121 -67 148 -34 21 -97 26 -133 10z m124 -59 c38 -37 44 -60 29 -106 -18 -53 -72 -82 -124 -65 -64 21 -95 108 -56 156 42 52 106 59 151 15z" />
+                            <path
+                                d="M1863 2760 c-17 -12 -41 -40 -52 -64 -20 -41 -21 -58 -21 -565 0 -503 1 -523 20 -561 51 -100 191 -104 250 -7 18 29 20 52 20 285 l0 252 155 0 c118 0 163 4 185 15 93 48 106 179 23 242 -36 28 -39 28 -200 31 l-163 4 0 149 0 150 -38 41 c-35 37 -45 42 -93 45 -43 3 -61 -1 -86 -17z m127 -35 c46 -24 53 -47 52 -179 -1 -67 4 -133 9 -147 16 -40 48 -49 185 -49 138 0 179 -11 207 -53 20 -31 22 -66 5 -102 -21 -46 -53 -55 -208 -55 l-142 0 -29 -29 -29 -29 0 -235 c0 -154 -4 -244 -11 -260 -31 -68 -133 -73 -176 -8 l-22 33 -1 511 c0 498 5 587 32 587 5 0 16 7 24 15 20 19 67 19 104 0z" />
+                            <path
+                                d="M625 2383 c-33 -9 -74 -43 -90 -73 -12 -24 -15 -89 -15 -376 0 -335 1 -348 21 -381 53 -86 188 -84 246 4 16 25 18 57 18 379 0 340 -1 353 -21 380 -42 56 -103 82 -159 67z m80 -45 c15 -7 35 -29 46 -49 17 -34 18 -60 16 -361 -2 -336 -4 -353 -46 -385 -24 -18 -93 -15 -117 5 -43 35 -45 48 -45 395 1 307 2 334 19 357 35 46 80 60 127 38z" />
+                            <path
+                                d="M1034 2379 c-18 -5 -46 -25 -63 -45 l-32 -36 3 -364 3 -364 33 -32 32 -33 283 0 c396 0 367 -34 367 436 0 360 -3 378 -56 416 -83 58 -181 30 -219 -61 -13 -30 -15 -81 -15 -274 l1 -237 -75 -3 -76 -3 0 253 c0 233 -2 256 -20 285 -34 57 -101 82 -166 62z m97 -46 c49 -29 56 -65 58 -318 2 -271 -1 -262 103 -267 59 -2 70 0 92 21 l26 24 0 239 c0 205 2 242 16 264 18 27 63 54 89 54 31 0 82 -31 94 -56 7 -17 11 -130 11 -357 0 -367 1 -360 -64 -391 -28 -13 -72 -16 -258 -16 -346 0 -322 -29 -326 399 -2 296 -1 329 15 361 12 24 29 39 53 47 47 16 57 16 91 -4z" />
+                            <path
+                                d="M1075 1333 c-50 -10 -74 -27 -96 -67 -28 -53 -21 -98 20 -144 27 -28 36 -32 84 -32 46 0 58 4 85 30 17 16 34 41 38 55 9 35 -3 86 -26 113 -22 27 -77 50 -105 45z m74 -60 c49 -47 44 -107 -14 -143 -54 -34 -92 -24 -129 31 -22 34 -12 103 18 124 34 25 91 19 125 -12z" />
+                            <path
+                                d="M1895 1325 c-54 -19 -85 -59 -85 -110 0 -115 126 -173 209 -96 57 54 49 145 -19 192 -38 26 -61 29 -105 14z m89 -46 c66 -52 48 -131 -35 -162 -9 -3 -35 3 -57 14 -31 16 -41 27 -46 54 -7 38 18 102 43 108 38 11 70 6 95 -14z" />
+                            <path
+                                d="M2305 1321 c-22 -10 -48 -32 -57 -49 -62 -106 54 -233 162 -177 98 51 94 188 -7 230 -45 19 -49 19 -98 -4z m114 -50 c36 -33 41 -73 14 -111 -23 -34 -33 -40 -70 -40 -77 0 -118 55 -89 123 26 64 92 77 145 28z" />
+                            <path
+                                d="M617 1323 c-71 -20 -100 -126 -52 -189 64 -84 191 -56 214 47 11 48 -3 92 -39 124 -19 18 -90 28 -123 18z m108 -46 c36 -32 37 -36 31 -78 -5 -35 -13 -49 -39 -66 -18 -13 -40 -23 -49 -23 -37 0 -77 23 -93 54 -17 31 -17 35 0 79 15 41 22 47 54 53 30 5 51 10 57 13 1 1 19 -14 39 -32z" />
+                            <path
+                                d="M1433 1306 c-62 -52 -68 -130 -13 -185 55 -55 129 -53 180 5 25 29 30 43 30 84 0 40 -5 56 -28 81 -24 27 -38 33 -83 37 -48 4 -59 1 -86 -22z m128 -23 c44 -26 57 -104 24 -138 -28 -28 -63 -37 -98 -26 -63 21 -87 68 -63 125 23 55 82 71 137 39z" />
+                            <path
+                                d="M290 737 c0 -27 2 -28 30 -22 l30 7 0 -252 0 -252 -30 7 c-27 6 -30 4 -30 -19 l0 -26 170 0 170 0 0 76 0 75 -27 -3 c-27 -3 -28 -5 -25 -56 l4 -52 -86 0 -86 0 0 250 0 251 28 -3 c23 -3 27 1 27 21 0 23 -2 24 -87 25 l-88 2 0 -29z" />
+                            <path
+                                d="M1825 660 c-4 -12 -1 -27 5 -35 27 -33 78 -5 65 35 -4 14 -15 20 -35 20 -20 0 -31 -6 -35 -20z" />
+                            <path
+                                d="M723 550 c-15 -6 -23 -18 -23 -32 0 -13 -3 -33 -6 -45 -6 -20 -3 -23 25 -23 28 0 31 3 31 30 l0 30 69 0 c39 0 72 -3 75 -8 2 -4 6 -32 7 -62 l3 -55 -79 3 c-44 2 -93 -1 -108 -7 l-28 -11 3 -92 3 -93 145 -3 c79 -1 150 0 157 2 19 8 5 34 -20 38 -20 3 -20 8 -18 134 3 152 -2 178 -35 193 -29 13 -169 14 -201 1z m180 -266 l-1 -59 -78 0 -79 0 -3 57 -3 57 73 3 c40 2 77 3 83 3 5 -1 9 -28 8 -61z" />
+                            <path
+                                d="M1029 558 c-1 -2 -3 -13 -4 -25 -2 -19 3 -23 26 -23 l29 0 0 -146 0 -146 -25 4 c-21 4 -25 1 -25 -18 0 -23 3 -24 75 -24 73 0 75 1 75 25 0 22 -3 25 -25 19 l-25 -6 0 146 0 146 69 0 c39 0 72 -4 75 -8 3 -5 6 -69 6 -143 l2 -134 -26 2 c-21 1 -26 -3 -26 -23 0 -23 2 -24 80 -24 72 0 80 2 80 19 0 14 -8 21 -27 23 l-26 3 2 145 c3 194 12 184 -168 188 -78 2 -142 2 -142 0z" />
+                            <path
+                                d="M1408 536 c-5 -23 -2 -26 24 -26 l29 0 -3 -142 c-3 -140 -4 -143 -25 -146 -15 -2 -23 -10 -23 -23 0 -17 8 -19 76 -19 72 0 75 1 72 23 -2 16 -9 21 -25 19 -23 -3 -23 -3 -23 142 l0 146 69 0 c40 0 73 -5 77 -11 3 -6 6 -70 6 -142 0 -132 0 -132 -24 -132 -16 0 -24 -7 -26 -23 -3 -21 -1 -22 78 -22 79 0 81 1 78 23 -2 16 -9 21 -25 19 -23 -3 -23 -3 -23 145 0 113 -3 154 -14 169 -13 17 -29 19 -154 22 l-139 3 -5 -25z" />
+                            <path
+                                d="M1787 541 c-6 -25 0 -31 30 -31 l23 0 0 -145 0 -145 -25 0 c-18 0 -25 -5 -25 -20 0 -18 7 -20 75 -20 73 0 75 1 75 25 0 22 -3 25 -25 19 l-25 -6 0 171 0 171 -49 0 c-40 0 -50 -4 -54 -19z" />
+                            <path
+                                d="M2010 540 c-20 -20 -21 -29 -18 -181 2 -129 6 -162 18 -169 23 -14 233 -13 248 2 8 8 12 61 12 174 0 138 -2 164 -17 175 -10 9 -51 15 -119 17 -94 3 -104 2 -124 -18z m204 -46 c3 -9 6 -71 6 -139 0 -103 -3 -124 -16 -129 -28 -11 -140 -6 -152 6 -13 13 -18 232 -6 262 9 23 159 23 168 0z" />
+                            <path
+                                d="M2330 536 c0 -21 5 -26 25 -26 l25 0 0 -146 0 -146 -24 6 c-18 4 -25 1 -29 -14 -3 -10 -2 -21 1 -24 3 -3 38 -6 79 -6 71 0 73 1 73 25 0 22 -3 25 -25 19 l-25 -6 0 146 0 147 73 -3 72 -3 3 -143 3 -143 -23 3 c-17 2 -24 -3 -26 -20 -3 -21 -1 -22 78 -22 79 0 81 1 78 22 -2 16 -10 23 -26 23 l-24 0 1 145 c2 194 12 184 -168 188 l-141 4 0 -26z" />
+                        </g>
+                    </svg>
+                    IUT Lannion
+                </a>
+
+                <a href="https://www.enseignementsup-recherche.gouv.fr/sites/default/files/annexe-2-licence-professionnelle-bachelor-universitaire-de-technologie-informatique-29016.pdf" target="_blank" rel="noopener noreferrer"
+                    class="footer-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100"
+                        viewBox="0,0,256,256">
+                        <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                            stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                            font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                            style="mix-blend-mode: normal">
+                            <g transform="scale(5.12,5.12)">
+                                <path
+                                    d="M7,2v46h36v-33.40625l-0.28125,-0.3125l-12,-12l-0.3125,-0.28125zM9,4h20v12h12v30h-32zM31,5.4375l8.5625,8.5625h-8.5625zM15,22v2h20v-2zM15,28v2h16v-2zM15,34v2h20v-2z">
+                                </path>
+                            </g>
+                        </g>
+                    </svg>
+                    Programme BUT Informatique
+                </a>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-copyright">
+                <p>&copy; 2025 Esmeralda MARTIN. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Carousel functionality
