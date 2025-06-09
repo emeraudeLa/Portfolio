@@ -565,22 +565,26 @@
                     <div class="project-icon">🤖</div>
                     <h3 class="project-title">Jeu du Snake autonome</h3>
                     <p class="project-description"> Création d'un jeu Snake autonome, le serpent se déplace tout seul.
-                    Plusieurs versions ont été faites, à la fin on se retrouve avec deux serpents qui jouent face à face.</p>
-                <a href="PageProjets.html#snakeAuto" class="project-link">Voir le projet →</a>
+                        Plusieurs versions ont été faites, à la fin on se retrouve avec deux serpents qui jouent face à
+                        face.</p>
+                    <a href="PageProjets.html#snakeAuto" class="project-link">Voir le projet →</a>
                 </div>
 
                 <div class="project-item">
                     <div class="project-icon">📱</div>
                     <h3 class="project-title">Développement d'une Application</h3>
-                    <p class="project-description">Création d'une app de gestion de tâches avec Flutter, incluant
-                        synchronisation cloud et notifications push pour améliorer la productivité.</p>
+                    <p class="project-description">Création d'une IHM (Interface Homme Machine) de gestion pour une
+                        association de danse. Le projet a commencé par la conception de l'IHM et des ses différentes
+                        fonctionnalités, jusqu'au développement de celle-ci.</p>
                     <a href="PageProjets.html#devApp" class="project-link">Voir le projet →</a>
                 </div>
 
                 <div class="project-item">
                     <div class="project-icon">🔍</div>
                     <h3 class="project-title">Exploitation d'une Base de Données</h3>
-                    <p class="project-description">Création d'une base de données puis exploitation de celle-ci. On passe de la conception de la base de données, à son peuplement, puis à son exploitation pour obtenir des statistiques.</p>
+                    <p class="project-description">Création d'une base de données puis exploitation de celle-ci. On
+                        passe de la conception de la base de données, à son peuplement, puis à son exploitation pour
+                        obtenir des statistiques.</p>
                     <a href="PageProjets.html#explBdd" class="project-link">Voir le projet →</a>
                 </div>
             </div>
@@ -728,8 +732,8 @@
                     IUT Lannion
                 </a>
 
-                <a href="https://www.enseignementsup-recherche.gouv.fr/sites/default/files/annexe-2-licence-professionnelle-bachelor-universitaire-de-technologie-informatique-29016.pdf" target="_blank" rel="noopener noreferrer"
-                    class="footer-link">
+                <a href="https://www.enseignementsup-recherche.gouv.fr/sites/default/files/annexe-2-licence-professionnelle-bachelor-universitaire-de-technologie-informatique-29016.pdf"
+                    target="_blank" rel="noopener noreferrer" class="footer-link">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100"
                         viewBox="0,0,256,256">
                         <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
@@ -756,45 +760,87 @@
     </footer>
 
     <script>
-        let currentPosition = 0;
-        const carousel = document.getElementById('skillsCarousel');
-        const skillItems = document.querySelectorAll('.skill-item');
-        const itemWidth = 180; // 150px width + 30px margin
-        const maxPosition = -(skillItems.length - 4) * itemWidth;
+// ===== CARROUSEL DES COMPÉTENCES =====
+let currentPosition = 0;
+const carousel = document.getElementById('skillsCarousel');
+const skillItems = document.querySelectorAll('.skill-item');
+const itemWidth = 180; // 150px width + 30px margin
+const maxPosition = -(skillItems.length - 4) * itemWidth;
 
-        function moveCarousel(direction) {
-            currentPosition += direction * itemWidth * 2;
+// Animation d'apparition au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-            if (currentPosition > 0) {
-                currentPosition = maxPosition;
-            } else if (currentPosition < maxPosition) {
-                currentPosition = 0;
-            }
+function moveCarousel(direction) {
+    currentPosition += direction * itemWidth * 2;
+    if (currentPosition > 0) {
+        currentPosition = maxPosition;
+    } else if (currentPosition < maxPosition) {
+        currentPosition = 0;
+    }
+    carousel.style.transform = `translateX(${currentPosition}px)`;
+}
 
-            carousel.style.transform = `translateX(${currentPosition}px)`;
-        }
+// ===== ANIMATION DE SCROLL DE PAGEPERSONNELLE =====
+// Carrousels pour PagePersonnelle (si présents)
+const carousels = {};
 
+// Initialize all carousels
+document.addEventListener('DOMContentLoaded', function () {
+    const carouselNames = ['coding', 'gaming', 'reading', 'sport', 'design', 'travel'];
+    carouselNames.forEach(name => {
+        carousels[name] = {
+            currentSlide: 0,
+            totalSlides: 3
+        };
+    });
+});
 
+function goToSlide(carouselName, slideIndex) {
+    const carousel = document.getElementById(`carousel-${carouselName}`);
+    if (!carousel) return; // Vérification si l'élément existe
+    
+    const dots = carousel.parentElement.querySelectorAll('.carousel-dot');
+    carousels[carouselName].currentSlide = slideIndex;
+    
+    // Update carousel position
+    carousel.style.transform = `translateX(-${slideIndex * 100}%)`;
+    
+    // Update dots
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === slideIndex);
+    });
+}
 
-        // Add smooth animations on scroll
-        window.addEventListener('scroll', () => {
-            const cards = document.querySelectorAll('.project-card');
-            cards.forEach(card => {
-                const cardTop = card.getBoundingClientRect().top;
-                if (cardTop < window.innerHeight - 100) {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }
-            });
-        });
+function nextSlide(carouselName) {
+    if (!carousels[carouselName]) return;
+    
+    const current = carousels[carouselName].currentSlide;
+    const total = carousels[carouselName].totalSlides;
+    const nextIndex = (current + 1) % total;
+    goToSlide(carouselName, nextIndex);
+}
 
-        // Initialize card animations
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(50px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        });
-    </script>
+function prevSlide(carouselName) {
+    if (!carousels[carouselName]) return;
+    
+    const current = carousels[carouselName].currentSlide;
+    const total = carousels[carouselName].totalSlides;
+    const prevIndex = (current - 1 + total) % total;
+    goToSlide(carouselName, prevIndex);
+}
+
+// Auto-slide functionality (optional)
+function startAutoSlide(carouselName, interval = 4000) {
+    if (!carousels[carouselName]) return;
+    
+    setInterval(() => {
+        nextSlide(carouselName);
+    }, interval);
+}
+</script>
 </body>
 
 </html>
