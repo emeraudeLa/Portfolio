@@ -6,13 +6,7 @@ Ce portfolio présente l'ensemble des projets sur lesquels j'ai travaillé ainsi
 ## 🔧 Contenu du portfolio
 
 - Présentation des différents projets réalisés en première année
-- Mise en avant des compétences acquises :
-  - Algorithmique
-  - Programmation orientée objet
-  - Développement web
-  - Base de données
-  - Travail en équipe
-  - Gestion de projet
+- Mise en avant des compétences acquises
 
 ## 📁 Installation et lancement
 
